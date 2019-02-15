@@ -107,6 +107,7 @@ def _compile_action(ctx, inputs, outputs, tsconfig_file, node_opts, description 
 
     if ctx.file.tsconfig:
         action_inputs.append(ctx.file.tsconfig)
+        print("Contains TsConfigInfo: ", TsConfigInfo in ctx.attr.tsconfig)
         if TsConfigInfo in ctx.attr.tsconfig:
             action_inputs.extend(ctx.attr.tsconfig[TsConfigInfo].deps)
 
